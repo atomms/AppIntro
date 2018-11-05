@@ -1,18 +1,13 @@
 package application;
 
-import java.net.URL;
-import java.util.ResourceBundle;
-
 import javafx.animation.TranslateTransition;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
 
-public class Controller implements Initializable {
+public class Controller{
 
 	@FXML
 	private AnchorPane pane1;
@@ -36,8 +31,7 @@ public class Controller implements Initializable {
 
 	}
 
-	@Override
-	public void initialize(URL location, ResourceBundle resources) {
+	public void initialize() {
 		translateAnimation(0.5, pane2, 600);
 		translateAnimation(0.5, pane3, 600);
 	}
@@ -45,7 +39,7 @@ public class Controller implements Initializable {
 	int showSlide = 0;
 
 	@FXML
-	void nextAction(ActionEvent event) {
+	void nextAction() {
 
 		if (showSlide == 0) {
 			translateAnimation(0.5, pane2, -600);
@@ -64,10 +58,10 @@ public class Controller implements Initializable {
 	}
 
 	@FXML
-	void backAction(ActionEvent event) {
+	void backAction() {
 
 		if (showSlide == 0) {
-			System.out.println("No more slide");
+			System.out.println("No more slides");
 		} else if (showSlide == 1) {
 			translateAnimation(0.5, pane2, 600);
 			showSlide--; // showSlide=0
